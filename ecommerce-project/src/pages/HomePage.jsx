@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { useEffect,useState } from 'react';
 import { Header } from '../components/header';
+import { formatMoney } from '../utils/money';
 
 import './HomePage.css'
+
 
 export function HomePage({cart}) {
     const [products,setProducts] = useState([]);
@@ -40,7 +42,7 @@ export function HomePage({cart}) {
                                 <img className="product-rating-stars"
                                     src={`images/ratings/rating-${product.rating.stars * 10}.png`} />
                                 <div className="product-rating-count link-primary">
-                                    {product.rating.count}
+                                    {formatMoney(product.priceCents)}
                                 </div>
                             </div>
 
